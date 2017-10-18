@@ -1,4 +1,25 @@
-file = open("Automata.txt", "r")
+import sys, getopt
+
+# Function to open the file that contains the description of 
+# the Automata
+def openfile(argv):
+	fileToUse = ''
+	try:
+		opts, args = getopt.getopt(argv,"hi:o:",["ifile="])
+		print("opts; ", opts)
+	except getopt.GetoptError:
+		print ("Automata.py -i <inputfile>")
+		sys.exit(2)
+	for opt, arg in opts:
+		if opt == '-h':
+			print ("Automata.py -i <inputfile>")
+			sys.exit()
+		elif opt in ("-i", "--ifile"):
+			fileToUse = arg
+	return fileToUse
+
+descriptionFile=openfile(sys.argv[1:])
+file = open('%s' % descriptionFile, 'r')
 word = file.readline().strip()
 states = set(state for state in file.readline().split())
 alphabet = set(letter for letter in file.readline().split())
