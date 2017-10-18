@@ -4,9 +4,13 @@ Conversion of NDFA to DFA in python.
 # How to run
 It is very simple just open the python3 and provide the .py
 
-The application will search for a Atomata.txt which describes the input and automata's properties.
+If one file with description is not provided, the application will search for a Atomata.txt file which describes the input and automata's properties.
+
+When use -i <inputfile> option the application will use the <inputfile> as description file of the automata. 
 
 At the end of execution the automata's properties are printed, as well wheter the input is accepted/rejected.
+
+The option -h shows one help message describing the options suported by the application.
 
 # Automata.txt
 The file must be in this formate:

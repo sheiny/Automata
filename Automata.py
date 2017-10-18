@@ -3,16 +3,17 @@ import sys, getopt
 # Function to open the file that contains the description of 
 # the Automata
 def openfile(argv):
-	fileToUse = ''
+	fileToUse = 'Automata.txt'
 	try:
 		opts, args = getopt.getopt(argv,"hi:o:",["ifile="])
-		print("opts; ", opts)
+		# print("opts; ", opts)
 	except getopt.GetoptError:
-		print ("Automata.py -i <inputfile>")
-		sys.exit(2)
+		# print ("Error: unknow input file")
+		return fileToUse
+		# sys.exit()
 	for opt, arg in opts:
 		if opt == '-h':
-			print ("Automata.py -i <inputfile>")
+			print ("-h:\n\tShow this help message\n\n-i <inputfile>:\n\tUse the <inputfile> to execute the algorithm. <inputfile> must conteins the description of one NDFA.")
 			sys.exit()
 		elif opt in ("-i", "--ifile"):
 			fileToUse = arg
